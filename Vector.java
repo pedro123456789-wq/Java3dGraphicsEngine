@@ -3,9 +3,10 @@ public class Vector {
 	public double x;
 	public double y;
 	public double z;
+	private double length;
 	
 	public Vector(double x, double y, double z) {
-		double length = Math.sqrt((x * x) + (y * y) + (z * z)); //3d-pythagoras
+		this.length = Math.sqrt((x * x) + (y * y) + (z * z)); //3d-pythagoras
 		
 		//normalise input vector		
 		if (length > 0) {
@@ -23,4 +24,22 @@ public class Vector {
 		
 		return output;             
 	}
+	
+	
+	public double dot(Vector other) {
+		return (this.x * other.x) + (this.y * other.y) + (this.z * other.z);
+	}
+	
+	
+	public Vector add(Vector other) {
+		return new Vector(this.x + other.x, this.y + other.y, this.z + other.z);
+	}
+	
+	public Vector mulitply(double other) {
+		return new Vector(this.x * other, this.y * other, this.z * other);
+	}
+	
+	public double getLength() {
+		return this.length;
+	}	
 }
